@@ -2,32 +2,38 @@
     background-color: #D5BDAF;
 }
 
-.signupBtn{
+.textbtn{
     color: blue;
     outline: none;
     box-shadow: none;
+    background-color: transparent;
 }
 
 .logo{
     width: 80%;
 }
 .form-main{
-    max-width: 480px;
+    max-width: 500px;
     margin: auto;
     padding: 10%;
 }
 .formlayout{
     background-color: #EDEDE9;
+    padding: auto;
 }
 
 .fade-out{
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 1s ease-in-out;
 }
+
+.fade-out.hide {
+    opacity: 0;
+  }
 
 .fade-in{
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 .fade-in.show {
     opacity: 1;
