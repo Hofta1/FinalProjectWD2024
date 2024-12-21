@@ -1,10 +1,17 @@
-.btn{
-    background-color: #D5BDAF;
+body {
+  background-color: #E3D5CA;
 }
 
-body{
-    background-color: #E3D5CA;
+.top-navbar-container {
+  background-color: #EDEDE9;
 }
+
+.button {
+  background-color: #D5BDAF;   
+}
+
+
+
 
 .card-img-top {
   height: 200px;
