@@ -2,6 +2,14 @@ body {
     background-color: #E3D5CA;
 }
 
+.top-navbar-container {
+    background-color: #EDEDE9;
+}
+
+.button {
+    background-color: #D5BDAF;   
+}
+
 .outer-container {
     background-color: #D5BDAF;
 }
