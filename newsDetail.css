@@ -8,6 +8,15 @@ body {
 
 .button {
     background-color: #D5BDAF;   
+    color: #EDEDE9;
+    border: 2px solid #D5BDAF;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #EDEDE9;
+    color: #D5BDAF;
+    border: 2px solid #D5BDAF;
 }
 
 .outer-container {
