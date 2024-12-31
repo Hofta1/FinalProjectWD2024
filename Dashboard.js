@@ -1,12 +1,34 @@
-// variable
-// const homeButton = document.getElementById("home");
-
 // API
 const API_KEY = 'fa57b75ad2114776b4f329a673acb9c8' // Nick's API
 // const API_KEY = 'bfe5dd6f827f468c84a089052458a8a2' // Chris' API
-const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`
+const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${API_KEY}`
 
 document.addEventListener('DOMContentLoaded', () => {
+    const welcomeTxt = document.getElementById('welcomeText');
+    const loginStatus = document.getElementById('logInStatus');
+    const userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));
+
+    // check if user has logged in
+    if(userLoggedIn){
+
+        welcomeTxt.textContent = `Welcome, ${userLoggedIn.username}`;
+        loginStatus.textContent = 'Log Out'
+
+        loginStatus.addEventListener('click', function () {
+            localStorage.removeItem('userLoggedIn');
+            location.reload();
+        });
+
+    } else {
+        // set to guest mode
+        welcomeTxt.textContent = 'Welcome, Guest';
+        loginStatus.textContent = 'Log In';
+
+        loginStatus.addEventListener('click', function (){
+        window.location.href = 'index.html';
+        })
+    }
+
     fetchData();
     setupHomePage();
   });

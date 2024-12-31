@@ -6,6 +6,10 @@ body {
   background-color: #EDEDE9;
 }
 
+.form{
+  border-radius: 15px;
+}
+
 .button {
   background-color: #D5BDAF;   
   color: #EDEDE9;
@@ -29,13 +33,6 @@ body {
   background-color: #EDEDE9;
   color: #D5BDAF;
   border: 2px solid #D5BDAF;
-}
-
-.btn:active {
-  background-color: #D5BDAF;   
-  color: #EDEDE9;
-  border: 2px solid #D5BDAF;
-  box-shadow: none;
 }
 
 .button:hover {

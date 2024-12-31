@@ -49,10 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (loginCheck(profilesArray, email, password)==false) {
             pageModal.show();
         } else {
+            // saves user's data to dashboard.html
+            const userLoggedIn = profilesArray.find(profile => profile.email === email);
+            localStorage.setItem('userLoggedIn', JSON.stringify(userLoggedIn))
+
             // Apply fade-out class and redirect after a small delay
             document.body.classList.add('fade-out');
             setTimeout(function () {
-                window.location.href = '/signup.html'; // Redirect to signup page
+                window.location.href = '/dashboard.html'; // Redirect to dashboard page
             }, 500); // Wait for fade-out to complete
         }
     });
