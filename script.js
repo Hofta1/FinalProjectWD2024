@@ -1,15 +1,15 @@
 
-function loginCheck(profilesArray, email, password) {
-    for (let i = 0; i < profilesArray.length; i++) {
-        const profile = profilesArray[i];
-        console.log(profile.email);
-        if (profile.email === email && profile.password === password) {
-            console.log("hello");
-            return true; 
-        }
-    }
-    return false;
-}
+// function loginCheck(profilesArray, email, password) {
+//     for (let i = 0; i < profilesArray.length; i++) {
+//         const profile = profilesArray[i];
+//         console.log(profile.email);
+//         if (profile.email === email && profile.password === password) {
+//             console.log("hello");
+//             return true; 
+//         }
+//     }
+//     return false;
+// }
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
         { username: 'Bob', password: "bobpass", email: 'bob@example.com',phonenum:'087875841314'  },
         { username: 'Charlie', password: "charliepass", email: 'charlie@example.com',phonenum:'087875841314'}
       ];
-      localStorage.setItem('profiles', JSON.stringify(profiles));
+
+      if(localStorage.getItem('profiles') == false){
+          localStorage.setItem('profiles', JSON.stringify(profiles));
+      }
 
     const signinForm = document.getElementById('loginForm');
     const signEmail = document.getElementById('femail');
@@ -40,13 +43,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const storedProfiles = localStorage.getItem('profiles');
     const profilesArray = JSON.parse(storedProfiles);
 
-
     signinForm.addEventListener('submit', function (event) {
-        const email = signEmail.value;
-        const password = signPassword.value;
         event.preventDefault();
+
+        const email = signEmail.value.trim();
+        const password = signPassword.value.trim();
+        
         console.log(loginCheck(profilesArray, email, password))
-        if (loginCheck(profilesArray, email, password)==false) {
+        
+        if (loginCheck(profilesArray, email, password) == false) {
             pageModal.show();
         } else {
             // saves user's data to dashboard.html
@@ -70,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '/signup.html'; // Redirect to signup page
         }, 500);
     });
-
-  
 });
 
+function loginCheck (profilesArray, email, password){
+    return profilesArray.some(profile => profile.email === email && profile.password === password);
+}

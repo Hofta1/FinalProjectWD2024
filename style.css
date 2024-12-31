@@ -40,6 +40,12 @@ h1{
     margin: auto;
     padding: 10%;
 }
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
 .formlayout{
     background-color: #EDEDE9;
     padding: auto;

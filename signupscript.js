@@ -11,18 +11,28 @@ document.addEventListener('DOMContentLoaded', function () {
       const iphonenum = document.getElementById('sphone');
       const signUpBtn = document.getElementById('signUp');
       const pageModal = new bootstrap.Modal(document.getElementById('pageModal'));
-
-      const logoutForm = document.getElementById('logoutForm')
-      logoutForm.addEventListener('submit',function(event){
+      const signUpForm = document.getElementById('signUpForm')
+      
+      signUpForm.addEventListener('submit',function(event){
         event.preventDefault();
-        const username = iusername.value
-        const password = ipassword.value
-        const email = iemail.value
-        const phonenum = iphonenum.value
+        
+        const username = iusername.value.trim();
+        const password = ipassword.value.trim();
+        const email = iemail.value.trim();
+        const phonenum = iphonenum.value.trim();
+
         const storedProfiles = localStorage.getItem('profiles');
-        const profilesArray = JSON.parse(storedProfiles);
-        newProfile = {username,password,email,phonenum}
-        profilesArray.push(newProfile)  
+        const profilesArray = storedProfiles ? JSON.parse(storedProfiles) : [];
+        
+        const existedEmail = profilesArray.some(profile => profile.email === email);
+        if(existedEmail){
+          alert('Current email already registered');
+          return;
+        }
+
+        const newProfile = {username,password,email,phonenum}
+        profilesArray.push(newProfile)
+
         localStorage.setItem('profiles', JSON.stringify(profilesArray));
         pageModal.show();
         
