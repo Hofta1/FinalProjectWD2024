@@ -76,7 +76,7 @@ function newsCard(articles){
     articles.forEach((article, index) => {
         const imageURL = article.urlToImage || 'https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg' // (article.urlToImage && article.urlToImage != 'null' && article.urlToImage != '') ? article.urlToImage : 'https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';
         const title = article.title || 'no title'
-        const author = article.author || 'unknwon author'
+        const author = article.author || 'unknown author'
 
         const card = document.createElement('div');
         card.classList.add('col-md-4');
