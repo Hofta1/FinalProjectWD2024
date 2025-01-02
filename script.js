@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pageModal.show();
         } else {
             // saves user's data to dashboard.html
-            const userLoggedIn = profilesArray.find(profile => profile.email === email);
+            const userLoggedIn = profilesArray.find(profile => profile.username === email);
             localStorage.setItem('userLoggedIn', JSON.stringify(userLoggedIn))
 
             // Apply fade-out class and redirect after a small delay
@@ -78,5 +78,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function loginCheck (profilesArray, email, password){
-    return profilesArray.some(profile => profile.email === email && profile.password === password);
+    return profilesArray.some(profile => profile.username === email && profile.password === password);
 }

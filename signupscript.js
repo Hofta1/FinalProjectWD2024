@@ -24,7 +24,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const storedProfiles = localStorage.getItem('profiles');
         const profilesArray = storedProfiles ? JSON.parse(storedProfiles) : [];
         
+        const existedUsername = profilesArray.some(profile => profile.username === username);
+        const existedPassword = profilesArray.some(profile => profile.password === password);
         const existedEmail = profilesArray.some(profile => profile.email === email);
+        if(username.length<5){
+          alert('Username must be at least 5 characters long');
+          return;
+        }
+        if(existedUsername){
+          alert('Username already registered');
+          return
+        }
+        if(password.length<5){
+          alert('Password must be at least 5 characters long');
+          return;
+        }
+        if(existedPassword){
+          alert('Password already registered');
+          return
+        }
         if(existedEmail){
           alert('Current email already registered');
           return;
