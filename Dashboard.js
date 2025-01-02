@@ -1,6 +1,6 @@
 // API
-const API_KEY = 'fa57b75ad2114776b4f329a673acb9c8' // Nick's API
-// const API_KEY = 'bfe5dd6f827f468c84a089052458a8a2' // Chris' API
+// const API_KEY = 'fa57b75ad2114776b4f329a673acb9c8' // Nick's API
+const API_KEY = 'bfe5dd6f827f468c84a089052458a8a2' // Chris' API
 const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${API_KEY}`
 
 document.addEventListener('DOMContentLoaded', () => {
