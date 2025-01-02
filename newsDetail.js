@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const news = JSON.parse(localStorage.getItem('selectedNews'));
 
     if(news) {
+        document.getElementById('newsTitle').textContent = news.title || 'No Title'
         document.getElementById('newsImage').src = news.imageURL  || 'https://static.vecteezy.com/system/resources/previews/004/639/366/non_2x/error-404-not-found-text-design-vector.jpg';
         document.getElementById('newsAuthor').textContent = news.author  || 'Unknown Author';
         document.getElementById('newsDate').textContent = news.publishedAt  || 'Unknown Date';
